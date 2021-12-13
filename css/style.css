@@ -257,6 +257,6 @@ path.current-floor {
   text-decoration: underline;
 }
 
-.flats-img-current {
+.flats path.flats-img-current {
   opacity: 1;
 }

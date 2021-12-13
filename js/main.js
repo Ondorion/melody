@@ -8,6 +8,13 @@ $(document).ready(function () {
   var modalCloseButton = $(".modal-close-button");
   var viewFlatsButton = $(".view-flats");
 
+  $('.flat-link').on('mouseover', function () { // функция при наведении мыши на ссылку на квартиру
+    $('.flat-link').removeClass('current-flats');
+    dataFt = $(this).attr("data-link");
+    console.log(dataFt);
+    $('.flats path').removeClass('flats-img-current');
+    $(`[data-flat=${dataFt}]`).toggleClass('flats-img-current'); // подсвечиваем текущую квартиру
+  });
 
 
   // функция при наведении мыши на этаж
@@ -17,19 +24,14 @@ $(document).ready(function () {
     $('.counter').text(currentFloor); // выводим значение этажа в счетчик
   });
 
-  $('.flats path').on('mouseover', function () {
+  $('.flats path').on('mouseover', function () { // функция при наведении мыши на квартиру
+    $('.flats path').removeClass('flats-img-current');
     dataFlatLi = $(this).attr("data-flat");
     $('.flat-link').removeClass('current-flats');
     $(`[data-link=${dataFlatLi}]`).toggleClass('current-flats');
   });
 
-  $('.flat-link').on('mouseover', function () {
-    $('.flat-link').removeClass('current-flats');
-    dataFt = $(this).attr("data-link");
-    console.log(dataFt);
-    $('.flats path').removeClass('flats-img-current');
-    $(`[data-flat=${dataFt}]`).addleClass('flats-img-current');
-  });
+
 
 
 
