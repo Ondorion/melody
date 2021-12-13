@@ -1,8 +1,14 @@
 $(document).ready(function () {
   var currentFloor = 2;
   var floorPath = $('.home-image path');
+  var flatsPath = $('.flats path');
   var counterUp = $(".counter-up"); /* кнопка увеличения этажа */
   var counterDown = $(".counter-down"); /* кнопка уменьшения этажа */
+  var modal = $(".modal");
+  var modalCloseButton = $(".modal-close-button");
+  var viewFlatsButton = $(".view-flats");
+
+
 
   // функция при наведении мыши на этаж
   $('.home-image path').on('mouseover', function () {
@@ -10,6 +16,28 @@ $(document).ready(function () {
     currentFloor = $(this).attr("data-floor"); // получаем значение текущего этажа
     $('.counter').text(currentFloor); // выводим значение этажа в счетчик
   });
+
+  $('.flats path').on('mouseover', function () {
+    dataFlatLi = $(this).attr("data-flat");
+    $('.flat-link').removeClass('current-flats');
+    $(`[data-link=${dataFlatLi}]`).toggleClass('current-flats');
+  });
+
+  $('.flat-link').on('mouseover', function () {
+    $('.flat-link').removeClass('current-flats');
+    dataFt = $(this).attr("data-link");
+    console.log(dataFt);
+    $('.flats path').removeClass('flats-img-current');
+    $(`[data-flat=${dataFt}]`).addleClass('flats-img-current');
+  });
+
+
+
+  floorPath.on('click', toggleModel); // при клике на этаж вызвать окно
+
+  modalCloseButton.on('click', toggleModel); //клик на кнопку закрыть
+
+  viewFlatsButton.on('click', toggleModel);
 
   counterUp.on('click', function () { // отслеживаем клик по кнопке вверх
     if (currentFloor < 18) { // проверяем значение этажа, которое должно быть не больше 18
@@ -37,5 +65,9 @@ $(document).ready(function () {
     }
 
   })
+
+  function toggleModel() { //функция открыть закрыть окно
+    modal.toggleClass('is-open');
+  }
 
 });

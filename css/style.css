@@ -61,10 +61,6 @@ body {
   line-height: 16px;
 }
 
-
-
-
-
 .navbar-phone {
   font-size: 17px;
   line-height: 20px;
@@ -128,7 +124,7 @@ path.current-floor {
   color: #635854;
 }
 
-.counter {
+.floor-counter {
   margin-top: 10px;
   font-family: "BebasNeueRegular",
     sans-serif;
@@ -143,4 +139,124 @@ path.current-floor {
   color: white;
   padding: 16px 36px;
   cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s;
+}
+
+.is-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 1000px;
+  min-height: 565px;
+  background-color: #fff;
+  flex-grow: 1;
+  display: flex;
+  transform: translateY(-10%);
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+  /* задержка в появлении*/
+}
+
+.is-open>.modal-dialog {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.modal-image {
+  width: 60%;
+  background-color: #EBEBEB;
+  text-align: center;
+  padding: 50px;
+}
+
+.modal-title {
+  font-family: "BebasNeueRegular",
+    sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 0;
+  margin-bottom: 35px;
+}
+
+.modal-info {
+  width: 40%;
+  padding: 50px 46px;
+}
+
+.flat-list {
+  padding: 0;
+  margin-top: 55px;
+  list-style: none;
+}
+
+.flat-item {
+  margin-bottom: 10px;
+}
+
+.flat-link {
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  text-decoration: none;
+}
+
+.flat-link:hover {
+  text-decoration: underline;
+  color: #3596F5;
+}
+
+.flats path {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.flats path:hover {
+  opacity: 1;
+}
+
+
+
+.modal-alert {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  margin-top: 56px;
+}
+
+.modal-close-button {
+  position: absolute;
+  right: 27px;
+  top: 38px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.current-flats {
+  color: #3596F5;
+  text-decoration: underline;
+}
+
+.flats-img-current {
+  opacity: 1;
 }
